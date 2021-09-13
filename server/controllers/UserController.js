@@ -1,7 +1,7 @@
 class UserController{
 
     async getUser(){
-      return 'UserServi2ce: Getting a User from Database';
+      return 'UserService: Getting a User from Database';
     }
     
 }

@@ -2,6 +2,7 @@
   "dependencies": {
     "bunyan": "^1.8.15",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jest": "^27.1.1",
     "pg": "^8.7.1",
@@ -17,8 +18,8 @@
   "scripts": {
     "test": "jest",
     "testwatch": "jest --watchAll",
-    "dev": "nodemon bin/run.js | bunyan -o short",
-    "start": "cd database && npx sequelize db:migrate && NODE_ENV=production node ../bin/run NODE_ENV=pro"
+    "dev": "nodemon -r dotenv/config bin/run.js dotenv_config_path=../.env | bunyan -o short",
+    "start": "cd database && npx sequelize db:migrate && NODE_ENV=production node -r dotenv/config ../bin/run dotenv_config_path=../.env"
   },
   "author": "",
   "license": "ISC",
