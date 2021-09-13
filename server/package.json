@@ -17,7 +17,7 @@
     "test": "jest",
     "testwatch": "jest --watchAll",
     "dev": "nodemon bin/run.js | bunyan -o short",
-    "start": "node bin/run"
+    "start": "cd database && npx sequelize db:migrate && NODE_ENV=production node ../bin/run NODE_ENV=pro"
   },
   "author": "",
   "license": "ISC",

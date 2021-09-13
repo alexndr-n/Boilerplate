@@ -4,7 +4,7 @@ services:
   database:
     image: "postgres" # use latest official postgres version
     env_file:
-      - ./database/database.env # configure postgres
+      - database.env # configure postgres
     restart: on-failure
     volumes:
       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
@@ -31,6 +31,7 @@ services:
     build:
       context: ./client
     container_name: client
+    hostname: client
     restart: on-failure
     depends_on: 
       database:
@@ -46,6 +47,7 @@ services:
       - "80:80"
     depends_on: 
       - server
+      - client
     networks: 
       - boilerplate-net
 

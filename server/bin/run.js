@@ -22,7 +22,7 @@ db_config.client = connectToPostgres()
 
 const server = http.createServer(app);
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 3001);
 
 server.on('listening', () => {
   log.info(
