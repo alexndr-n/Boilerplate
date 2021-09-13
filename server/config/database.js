@@ -6,7 +6,7 @@ module.exports = {
         username: "postgres",
         password: "admin",
         database: "dev",
-        host: "database",
+        host: "localhost",
         port: 5432,
         dialect: "postgres",
         logging: msg => log.info(msg)

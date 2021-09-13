@@ -1,6 +1,7 @@
 <template>
   <section class="section">
     <div class="columns is-mobile">
+      <h1>{{api_response ? api_response : "not connected to api"}}</h1>
       <card
         title="Free"
         icon="github"
@@ -45,9 +46,17 @@ import Card from '~/components/Card'
 
 export default {
   name: 'HomePage',
-
+  data(){
+    return {
+      api_response: null
+    }
+  },
   components: {
     Card
+  },
+
+  async mounted(){
+    this.api_response = await this.$axios.$get('/')
   }
 }
 </script>
