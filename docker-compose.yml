@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  database:
+    image: "postgres" # use latest official postgres version
+    env_file:
+      - ./database/database.env # configure postgres
+    restart: on-failure
+    volumes:
+      - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+    networks: 
+      - boilerplate-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  server:
+    build:
+      context: ./server
+    container_name: server
+    restart: on-failure
+    depends_on: 
+      database:
+        condition: service_healthy
+    networks: 
+      - boilerplate-net
+    
+  client:
+    build:
+      context: ./client
+    container_name: client
+    restart: on-failure
+    depends_on: 
+      database:
+        condition: service_healthy
+    networks: 
+      - boilerplate-net
+
+  nginx:
+    build: 
+      context: ./nginx
+    restart: on-failure
+    ports: 
+      - "80:80"
+    depends_on: 
+      - server
+    networks: 
+      - boilerplate-net
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+
+networks:
+  boilerplate-net:
+    driver: bridge
