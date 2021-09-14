@@ -2,6 +2,7 @@
   <section class="section">
     <div class="columns is-mobile">
       <h1>{{api_response ? api_response : "not connected to api"}}</h1>
+      <h1>{{env_test}}</h1>
       <card
         title="Free"
         icon="github"
@@ -48,15 +49,18 @@ export default {
   name: 'HomePage',
   data(){
     return {
-      api_response: null
+      api_response: null,
+      env_test: null,
     }
   },
   components: {
     Card
   },
 
-  async mounted(){
+  async created(){
     this.api_response = await this.$axios.$get('/')
+    console.log(process.env.ENV_TEST)
+    this.env_test = process.env.ENV_TEST
   }
 }
 </script>

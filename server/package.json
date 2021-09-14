@@ -19,7 +19,7 @@
     "test": "jest",
     "testwatch": "jest --watchAll",
     "dev": "nodemon -r dotenv/config bin/run.js dotenv_config_path=../.env | bunyan -o short",
-    "start": "cd database && npx sequelize db:migrate && NODE_ENV=production node -r dotenv/config ../bin/run dotenv_config_path=../.env"
+    "start": "cd database && NODE_ENV=production npx sequelize db:migrate && NODE_ENV=production node -r dotenv/config ../bin/run dotenv_config_path=../.env"
   },
   "author": "",
   "license": "ISC",

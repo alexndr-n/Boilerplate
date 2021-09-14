@@ -15,8 +15,18 @@ test-all:
 	cd server && \
 		npm run test
 
-run-prod:
+run-compose-prod:
 	docker-compose up -d
 
+run-compose-dev:
+	docker-compose up -d
+
+down-compose-dev:
+	docker-compose -f docker-compose.yml down
+
 kill-containers:
-	docker kill $(docker ps -q) 
+	docker kill $(docker ps -a -q) 
+	docker rm $(docker ps -a -q) 
+
+ssh-server:
+	ssh root@68.183.155.239
