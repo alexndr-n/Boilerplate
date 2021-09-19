@@ -1,0 +1,11 @@
+.mdi-bell::after{
+    content: "";
+    display: block;
+    height: 0.65em;
+    width: 0.65em;
+    border-radius: 50%;
+    background-color: #FD6161;
+    position: absolute;
+    top: 12px;
+    right: 5px;
+}

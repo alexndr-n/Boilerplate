@@ -24,8 +24,7 @@ services:
       - .env
     restart: on-failure
     depends_on: 
-      database:
-        condition: service_healthy
+      - database
     networks: 
       - boilerplate-net
     
@@ -36,8 +35,7 @@ services:
     hostname: client
     restart: on-failure
     depends_on: 
-      database:
-        condition: service_healthy
+      - database
     networks: 
       - boilerplate-net
 

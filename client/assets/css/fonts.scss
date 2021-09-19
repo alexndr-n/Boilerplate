@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("~/assets/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+  }
+  
+@font-face {
+    font-family: "Poppins";
+    src: url("~/assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+    font-weight: 400;
+    }
+  
+@font-face {
+    font-family: "LibreFranklin";
+    src: url("~/assets/fonts/LibreFranklin/LibreFranklin-VariableFont_wght.ttf") format("truetype");
+}
+
+body{
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+h1{
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+h2, h3, h4, h5, h6{
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+p{
+    font-family: "LibreFranklin";
+    font-weight: 600;
+}

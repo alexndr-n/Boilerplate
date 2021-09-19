@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  database:
+    image: "postgres"
+    env_file:
+      - .env
+    restart: on-failure
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+    networks: 
+      - boilerplate-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  server:
+    image: alejandronieto/personal:server
+    container_name: server
+    env_file:
+      - .env
+    restart: on-failure
+    depends_on: 
+      - database
+    networks: 
+      - boilerplate-net
+    
+  client:
+    image: alejandronieto/personal:client
+    container_name: client
+    hostname: client
+    restart: on-failure
+    depends_on: 
+      - database
+    networks: 
+      - boilerplate-net
+
+  nginx:
+    image: alejandronieto/personal:nginx
+    restart: on-failure
+    ports: 
+      - "80:80"
+    depends_on: 
+      - server
+      - client
+    networks: 
+      - boilerplate-net
+
+volumes:
+  database-data:
+
+networks:
+  boilerplate-net:
+    driver: bridge

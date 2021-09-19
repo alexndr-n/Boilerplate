@@ -1,0 +1,98 @@
+.menu-list li ul {
+    border-left: none !important;
+    margin: 0.75em;
+    padding-left: 0.75em;
+}
+
+.menu-list a.is-active {
+    background-color: $primary_color;
+    color: #fff;
+}
+
+.menu-list a {
+    border-radius:  0 $border_radius_medium $border_radius_medium  0;
+    color: $light_grey;
+}
+
+.b-sidebar .sidebar-content {
+    -webkit-box-shadow: unset;
+    box-shadow: unset;
+}
+
+.menu-list span{
+    font-size: 1.1em;
+    padding: 16px 0 !important;
+}
+
+.menu-list li ul {
+    border-left: none !important;
+    margin: 0.75em;
+    padding-left: 2.5em;
+}
+
+.navbar-item, .navbar-link {
+    padding: 0.5rem 1rem;
+}
+
+.menu-list .icon-text{
+    padding: 0.5em 0.5em 0.5em 1.75em;
+}
+.mdi-36px.mdi-set, .mdi-36px.mdi:before {
+    font-size: 34px;
+}
+.navbar-item img , img{
+    height: inherit;
+    max-height: unset;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: $light_grey;
+}
+
+.navbar-dropdown {
+    border-top: none;
+}
+
+.navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
+    background-color: $background_color;
+    border-radius: 6px;
+}
+
+a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-item.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, .navbar-link.is-active {
+    background-color: $background_color;
+    color: $twentyx_text;
+}
+
+.select select, .taginput .taginput-container.is-focusable, .textarea, .input {
+    border: none;
+}
+
+.select select:focus, .taginput .taginput-container.is-focusable:focus, .textarea:focus, .input:focus, .select select.is-focused, .taginput .is-focused.taginput-container.is-focusable, .is-focused.textarea, .is-focused.input, .select select:active, .taginput .taginput-container.is-focusable:active, .textarea:active, .input:active, .select select.is-active, .taginput .is-active.taginput-container.is-focusable, .is-active.textarea, .is-active.input {
+    border-color: $light_grey !important;
+    box-shadow: unset;
+}
+
+.navbar-item.has-dropdown {
+    padding: 0.5rem 1rem;
+}
+
+//Navbar
+@media(max-width: 1023px){
+    .navbar-dropdown {
+        padding-top: 1.5rem;
+    }
+    input.search{
+        border: 1px solid $lighter_grey;
+    }
+    .search-box{
+        margin: 10px auto;
+    }
+}
+
+
+//Card
+
+.card {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

@@ -1,74 +1,32 @@
 <template>
-  <div>
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a
-          class="navbar-item"
-          href="/"
-        >
-          <img
-            src="~assets/buefy.png"
-            alt="Buefy"
-            height="28"
-          >
-        </a>
-
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
-
-    <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">
-          General
-        </p>
-        <ul class="menu-list">
-          <li
-            v-for="(item, key) of items"
-            :key="key"
-          >
-            <NuxtLink
-              :to="item.to"
-              exact-active-class="is-active"
-            >
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </aside>
-
-      <div class="container column is-10">
+  <div class="flex">
+    <LayoutSidebar class="sidebar is-hidden-touch"/>
+    <LayoutNotification class="toast" v-if="this.$store.state.notification.notification" :notification="this.$store.state.notification.notification" :key="this.$store.state.notification.id"/>
+    <div class="main-content container">
+      <LayoutNavigation/>
+      <div>
         <Nuxt />
       </div>
-    </section>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
-    }
-  }
+<style scoped>
+.flex{
+  display: flex;
 }
-</script>
+.sidebar{
+  width: 280px;
+  /* position: fixed; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+}
+.main-content{
+  min-height: 100vh;
+}
+.container{
+  height: 100%;
+}
+</style>

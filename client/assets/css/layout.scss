@@ -1,0 +1,40 @@
+.main-content, body {
+    background-color: $background_color;
+}
+aside, .sidebar, .sidebar-content {
+    background-color: white !important;
+}
+nav{
+    background-color: $background_color !important;
+}
+.sidebar-content .p1{
+    height: 100vh;
+}
+
+
+
+//Navigation
+.navbar-burger{
+    height: 60px;
+    width: 60px;
+}
+
+.navbar-end{
+    text-align: center;
+}
+
+.navbar .search-box .icon{
+    top: 5px;
+}
+
+@media(max-width: 1023px){
+    a.navbar-item, .navbar-link {
+        text-align: center;
+    }
+    .navbar-link:not(.is-arrowless)::after {
+        display: none;
+    }
+    .navbar-link:not(.is-arrowless) {
+        padding: 0;
+    }
+}
