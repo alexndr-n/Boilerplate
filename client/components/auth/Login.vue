@@ -53,6 +53,8 @@ export default {
               type: 'is-danger',
               text: 'There was an error. Please contact support.',
             })
+          } else {
+            window.location.href = '/'
           }
         })
         .catch((error) => {

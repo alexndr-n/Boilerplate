@@ -71,17 +71,21 @@ export default {
         }
     },
     async fetch(){
-        try {
-            const users = await this.$axios.get('/users')
-            this.users = users.data
-        } catch (error) {
-            this.setNotification({
-                type: 'error',
-                text: 'An error has ocurred.',
-            })
-        }
+        await this.fetch()
     },
     methods: {
+        async fetch(){
+            try {
+                const users = await this.$axios.get('/users')
+                this.users = users.data
+            } catch (error) {
+                console.log(error)
+                this.setNotification({
+                    type: 'error',
+                    text: 'An error has ocurred.',
+                })
+            }
+        },
         async submit(data){
             try {
                 if(data.action === 'add'){
@@ -92,6 +96,7 @@ export default {
                 }
                 this.selected = null
             } catch (error) {
+                console.log('error', error)
                 this.setNotification({
                     type: 'error',
                     text: 'An error has ocurred.',
@@ -104,6 +109,7 @@ export default {
                 await this.$axios.$delete("/users/" + this.selected.id)
                 this.selected = null
             } catch (error) {
+                console.log(error)
                 this.setNotification({
                     type: 'error',
                     text: 'An error has ocurred.',

@@ -31,3 +31,6 @@ docker-build-push:
 
 ssh-server:
 	ssh root@68.183.155.239
+
+shell-server:
+	docker exec -it server bash

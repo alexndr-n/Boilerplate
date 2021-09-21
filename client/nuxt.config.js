@@ -40,7 +40,7 @@ export default {
 
   axios: {
     baseURL: process.env.NODE_ENV == 'production' ? 'http://server:3001' : 'http://localhost:3001',
-    browserBaseURL: process.env.NODE_ENV == 'production' ? 'http://localhost/api' : 'http://localhost:3001',
+    browserBaseURL: process.env.NODE_ENV == 'production' ? '/api' : 'http://localhost:3001',
   },
 
   build: {

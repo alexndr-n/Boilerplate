@@ -49,7 +49,7 @@
             <b-navbar-item>
                 <div class="separator-line is-hidden-touch"></div>
             </b-navbar-item>
-            <b-navbar-dropdown :right="true" class="mr-2">
+            <b-navbar-dropdown :right="true" class="mr-2" v-if="$store.state.auth.user">
                 <template v-slot:label>
                     <div class="columns user-label">
                         <img src="~/assets/images/placeholder-keanu.png" width="50px" height="50px" alt="user" class="is-hidden-touch">
