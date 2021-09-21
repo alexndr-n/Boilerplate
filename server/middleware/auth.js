@@ -5,7 +5,7 @@ const jwtToken = process.env.JWT_TOKEN
 
 const isUser = (req, res, next) => {
     try {
-        const token = req.headers['x-access-token'];
+        const token = req.headers['x-access-token'] || req.headers.authorization;
         if (!token) {
             console.log("no token")
             return res.status(403).send("Access denied.")

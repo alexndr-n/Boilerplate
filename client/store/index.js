@@ -6,7 +6,7 @@ export const actions = {
             const cookies = cookie.parse(context.req.headers.cookie || '')
             if (cookies.hasOwnProperty('x-access-token') && cookies.hasOwnProperty('vuex')) {
                 setAuthToken(cookies['x-access-token'])
-                context.app.$axios.setToken(cookies['x-access-token'], 'Bearer')
+                context.app.$axios.setToken(cookies['x-access-token'])
                 const data = cookies['vuex'];
                 dispatch('auth/fetch', data)
                     .then(result => {
