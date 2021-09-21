@@ -63,10 +63,6 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     color: $twentyx_text;
 }
 
-.select select, .taginput .taginput-container.is-focusable, .textarea, .input {
-    border: none;
-}
-
 .select select:focus, .taginput .taginput-container.is-focusable:focus, .textarea:focus, .input:focus, .select select.is-focused, .taginput .is-focused.taginput-container.is-focusable, .is-focused.textarea, .is-focused.input, .select select:active, .taginput .taginput-container.is-focusable:active, .textarea:active, .input:active, .select select.is-active, .taginput .is-active.taginput-container.is-focusable, .is-active.textarea, .is-active.input {
     border-color: $light_grey !important;
     box-shadow: unset;
@@ -89,14 +85,21 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     }
 }
 
+@media(max-width: 1215px){
+    .search{
+        width: 200px;
+    }
+    .navbar-start {
+        margin-left: auto;
+    }
+}
 
+.navbar-start {
+    margin-left: 40px;
+}
 //Card
 
 .card {
     -webkit-box-shadow: none;
     box-shadow: none;
-}
-
-input{
-    border: solid 1px $lighter_grey !important;
 }

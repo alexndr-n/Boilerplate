@@ -21,9 +21,9 @@ module.exports = {
         logging: msg => log.info(msg)
     }, 
     production: {
-        username: "postgres",
-        password: "admin",
-        database: "dev",
+        username: process.env.POSTGRES_USER,
+        password: process.env.POSTGRES_PASSWORD,
+        database: process.env.POSTGRES_DB,
         host: "database",
         port: 5432,
         dialect: "postgres",

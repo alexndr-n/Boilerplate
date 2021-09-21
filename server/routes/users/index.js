@@ -3,8 +3,9 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("../../database/models")
 const sequelize = require('sequelize')
-const {register} = require('../../services/auth')
-const { isAdmin } = require('../../middleware/auth')
+const bcrypt = require("bcrypt")
+const { new_account_email } = require('../../utils/email-copy')
+const { sendMail } = require("../../services/email")
 
 router.get("/", async (req, res) => {
     try {
@@ -48,9 +49,35 @@ router.get("/:id", async ( req, res ) => {
 
 router.post("/", async (req, res) => {
     try {
-        // const user = await User.create(req.body, {raw: true})
-        const user = register(req.body)
-        res.status(200).send(user.data)
+        const user = req.body
+        if (!user.email) {
+            return console.log("Email is required")
+        }
+    
+        const password = Math.random().toString(36).slice(-16);
+    
+        bcrypt.hash(password, 8, function (err, hash) {
+            if (err) {
+                console.log(err) 
+                return res.status(502).json({ type: 'error', message: 'There was an error, please contact support.' }) }
+            if (hash) hash = hash
+    
+            User.create({...user, password: hash})
+            .then(async (user) => {
+                await sendMail({
+                    to: user.email,
+                    ...new_account_email(password)
+                })
+                res.send({status: "success", data: user})
+            })
+            .catch(err => {
+                if (err.original && err.original.code == 23505) {
+                    res.status(400).send({status: "error", message: "email already exists"})
+                } else {
+                    res.status(500).send({status: "error"})
+                }
+            })
+        })
     } catch (error) {
         console.log(error)
         res.status(400).send(error)

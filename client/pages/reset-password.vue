@@ -57,7 +57,7 @@ export default {
                 .then(response => {
                 if(response !== 'success'){
                     this.setNotification({
-                        type: "is-error",
+                        type: "is-danger",
                         text: "There was an error. Please contact support."
                     })
                 }else{

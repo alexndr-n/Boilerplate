@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-modal v-model="selected"  :active="false" :width="600">
+        <b-modal v-model="selected"  :active="false" :width="600" @close="$emit('close')">
             <div class="card" v-if="selected">
                 <form class="card-content" @submit.prevent="$emit('submitData', {user, action})">
                     <h2 class="mb-2 is-size-4" v-if="action === 'add'">New User</h2>

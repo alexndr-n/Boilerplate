@@ -81,7 +81,7 @@ export default {
             } catch (error) {
                 console.log(error)
                 this.setNotification({
-                    type: 'error',
+                    type: 'is-danger',
                     text: 'An error has ocurred.',
                 })
             }
@@ -96,11 +96,17 @@ export default {
                 }
                 this.selected = null
             } catch (error) {
-                console.log('error', error)
-                this.setNotification({
-                    type: 'error',
-                    text: 'An error has ocurred.',
-                })
+                if(error.response.data.message === 'email already exists'){
+                    this.setNotification({
+                        type: 'is-danger',
+                        text: 'Email already exists.',
+                    })
+                } else {
+                    this.setNotification({
+                        type: 'is-danger',
+                        text: 'An error has ocurred.',
+                    })
+                }
             }
         },
         async Delete(){
@@ -111,7 +117,7 @@ export default {
             } catch (error) {
                 console.log(error)
                 this.setNotification({
-                    type: 'error',
+                    type: 'is-danger',
                     text: 'An error has ocurred.',
                 })
             }
