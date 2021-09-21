@@ -17,14 +17,16 @@ module.exports = {
         database: "dev",
         host: "database",
         port: 5432,
-        dialect: "postgres"
-    },
+        dialect: "postgres",
+        logging: msg => log.info(msg)
+    }, 
     production: {
         username: "postgres",
         password: "admin",
         database: "dev",
         host: "database",
         port: 5432,
-        dialect: "postgres"
+        dialect: "postgres",
+        logging: msg => log.info(msg)
     }
 }

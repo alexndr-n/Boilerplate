@@ -96,3 +96,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+
+input{
+    border: solid 1px $lighter_grey !important;
+}

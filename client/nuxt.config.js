@@ -14,16 +14,20 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   server: {
-    host: '0' // default: localhost
+    host: '0'
   },
 
   css: [
     '@/assets/css/join',
   ],
 
-  plugins: [
-  ],
+  router: {
+    middleware: 'reset-notification'
+  },
+
+  plugins: [{ src: '~/plugins/persistedState.client.js' }, { src: '~/plugins/notification.js' },'~/api/init.js'],
 
   components: true,
 
@@ -35,8 +39,11 @@ export default {
   ],
 
   axios: {
-    baseURL: process.env.NODE_ENV == 'production' ? 'http://localhost/api' : 'http://localhost:3001', // Used as fallback if no runtime config is provided
+    baseURL: process.env.NODE_ENV == 'production' ? 'http://server:3001' : 'http://localhost:3001',
+    browserBaseURL: process.env.NODE_ENV == 'production' ? 'http://localhost/api' : 'http://localhost:3001',
   },
 
-  build: {}
+  build: {
+    extend(config, ctx) {}
+  }
 }

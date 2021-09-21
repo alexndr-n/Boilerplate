@@ -1,20 +1,3 @@
-// export const state = () => ({
-//         notifications: [],
-//         id: 1,
-//   })
-  
-// export const mutations = {
-// setNotification(state, notification) {
-//     state.notifications.unshift({
-//       id: state.id,
-//       type: notification.type,
-//       text: notification.text
-//     }) 
-//     state.display = true
-//     state.id++
-// }
-// }
-
 export const state = () => ({
   notification: null,
   display: false,
@@ -45,6 +28,6 @@ export const actions = {
 
     setTimeout(() => {
       commit('resetNotification')
-    }, 20000);
+    }, 10000);
   }
 }

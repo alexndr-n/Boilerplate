@@ -25,7 +25,7 @@
                             <b-menu-item label="Computer Time"></b-menu-item>
                             <b-menu-item label="Invoices"></b-menu-item>
                         </b-menu-item>
-                        <b-menu-item icon="account-check" label="Customer Journey"></b-menu-item>
+                        <b-menu-item icon="account-check" label="Users" @click="redirect('/users')"></b-menu-item>
                         <b-menu-item icon="chart-bell-curve-cumulative" label="Data Playground"></b-menu-item>
                     </b-menu-list>
                 </b-menu>
@@ -43,6 +43,11 @@ export default {
       mobile: "reduce",
       reduce: false
     };
+  },
+  methods: {
+      redirect(path){
+          this.$router.push(path)
+      }
   }
 };
 </script>

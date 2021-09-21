@@ -19,6 +19,7 @@ services:
   server:
     build:
       context: ./server
+    image: alejandronieto/personal:server
     container_name: server
     env_file:
       - .env
@@ -31,6 +32,7 @@ services:
   client:
     build:
       context: ./client
+    image: alejandronieto/personal:client
     container_name: client
     hostname: client
     restart: on-failure
@@ -42,6 +44,8 @@ services:
   nginx:
     build: 
       context: ./nginx
+    image: alejandronieto/personal:nginx
+    container_name: nginx
     restart: on-failure
     ports: 
       - "80:80"

@@ -5,6 +5,7 @@ router.get('/', (req, res) => {
   res.send('Home Page');
 });
 
-router.use('/user', require('./users'));
+router.use('/users', require('./users'));
+router.use('/auth', require('./auth'));
 
 module.exports = router;

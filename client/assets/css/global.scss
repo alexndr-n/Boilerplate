@@ -3,3 +3,14 @@
     align-items: center;
     justify-content: center;
 }
+.flex-container{
+    display: flex;
+    width: 100%;
+    gap: 25px;
+}
+.w-100{
+    width: 100%;
+}
+.vh-100{
+    min-height: 100vh;
+}

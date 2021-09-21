@@ -1,10 +1,6 @@
 const http = require('http');
 const Sequelize = require('sequelize')
 
-require('dotenv').config
-
-console.log(process.env.ENV_TEST)
-
 const config = require('../config')[process.env.NODE_ENV || 'development'];
 const db_config = require('../config/database')[process.env.NODE_ENV || 'development'];
 

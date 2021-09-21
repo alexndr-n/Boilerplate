@@ -2,7 +2,7 @@
     <b-navbar class="navbar dark-1">
         <template #brand>
             <b-navbar-item  href="/" class="sidebar-logo is-hidden-desktop">
-                <img src="~/assets/images/logo.png" width="200px"/>
+                <img src="~/assets/images/logo.png" width="160px"/>
             </b-navbar-item>
         </template>
         <template #start>
@@ -54,7 +54,7 @@
                     <div class="columns user-label">
                         <img src="~/assets/images/placeholder-keanu.png" width="50px" height="50px" alt="user" class="is-hidden-touch">
                         <div>
-                            <h2>Rolando Jarvis</h2>
+                            <h2>{{$store.state.auth.user.full_name}}</h2>
                             <h3>Band: one island</h3>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
         methods: {
           logOut () {
             this.$store.dispatch('auth/reset').then(() => {
-                this.$router.push('/')
+                this.$router.push('/login')
             })
           },
         }
