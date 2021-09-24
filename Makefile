@@ -16,7 +16,7 @@ test-all:
 		npm run test
 
 compose:
-	docker-compose up -d
+	docker-compose up -d --force-recreate 
 
 down-compose-dev:
 	docker-compose -f docker-compose.yml down
